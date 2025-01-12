@@ -1,0 +1,377 @@
+/***
+    The new CSS reset - version 1.11.3 (last updated 25.08.2024)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Fix mobile Safari increase font-size on landscape mode */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu,
+summary {
+    list-style: none;
+}
+
+/* Firefox: solve issue where nested ordered lists continue numbering from parent (https://bugzilla.mozilla.org/show_bug.cgi?id=1881517) */
+ol {
+    counter-reset: revert;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+    box-sizing: border-box;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+    box-sizing: border-box;
+}
+
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+    display: none;
+}
+
+:root {
+    /* font */
+    --main-font-family: 'Epilogue', serif, sans-serif;
+
+    /* color */
+    --dark-blue: #172339;
+    --grey: #49566d;
+    --cream: #f3ede7;
+    --cream-white: #faf8f6;
+    --linear: linear-gradient(-77deg, #a060ff 0%, #cb30e3 49%, #ffa84e 100%);
+
+    /* text */
+    --heading-xl-72px: 72px;
+    --heading-xl-line-height: 78px;
+    --heading-xl-letter-spacing: -1px;
+
+    --heading-l-48px: 48px;
+    --heading-l-line-height: 56px;
+    --heading-l-letter-spacing: -0.5px;
+
+    --heading-m-18px: 18px;
+    --heading-m-line-height: 32px;
+    --heading-m-letter-spacing: -0.2px;
+
+    --heading-s-16px: 16px;
+    --heading-s-line-height: 26px;
+    --heading-s-letter-spacing: -2.5px;
+
+    --quote-20px: 20px;
+    --quote-line-height: 35px;
+    --quote-letter-spacing: 0;
+
+    --body-18px: 18px;
+    --body-line-height: 32px;
+    --body-letter-spacing: 0;
+
+    --footer-15px: 15px;
+    --footer-line-height: 32px;
+    --footer-letter-spacing: 0;
+
+    --bold: 700;
+    --regular: 400;
+}
+
+html {
+    font-family: var(--main-font-family);
+    font-optical-sizing: auto;
+}
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 375px;
+}
+
+.bold {
+    font-weight: var(--bold);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 16px 0;
+    width: 100%;
+    margin-bottom: 56px;
+}
+
+.button {
+    border: 1px solid var(--dark-blue);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__button {
+    font-size: 14px;
+    font-weight: var(--bold);
+    letter-spacing: -0.14px;
+    color: var(--dark-blue);
+    background-color: transparent;
+    cursor: pointer;
+    width: 182px;
+    height: 48px;
+}
+
+.section__one {
+    padding: 0 16px;
+    position: relative;
+    margin-bottom: 56px;
+}
+
+.section__one-title {
+    font-size: 38px;
+    line-height: 44px;
+    letter-spacing: -0.53px;
+    color: var(--dark-blue);
+    margin-bottom: 32px;
+}
+
+.section__one-curved-line {
+    display: block;
+    width: 151.47px;
+    height: auto;
+    margin-left: 154px;
+}
+
+.section__one-text {
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.09px;
+    color: var(--grey);
+    margin-bottom: 32px;
+}
+
+.section__one-button {
+    width: 256px;
+    height: 61px;
+    background-color: var(--dark-blue);
+    color: var(--cream-white);
+    font-size: 18px;
+    font-weight: var(--bold);
+    letter-spacing: -0.18px;
+    margin-bottom: 55.68px;
+}
+
+.section__two {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.section__two-companies,
+.section__two-languages {
+    margin-bottom: 32px;
+}
+
+.companies__number,
+.languages__number,
+.leads__number {
+    font-size: var(--heading-l-48px);
+    line-height: var(--heading-l-line-height);
+}
+
+.companies__text,
+.languages__text,
+.leads__text {
+    font-size: var(--heading-s-16px);
+    line-height: var(--heading-s-line-height);
+    letter-spacing: 2.5px;
+    color: var(--grey);
+    text-transform: uppercase;
+}
+
+.section__three-content {
+    background-color: var(--dark-blue);
+    color: var(--cream);
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 0;
+
+}
+
+.section__three-image {
+    display: block;
+    width: 252px;
+    height: auto;
+    margin: 0 auto -230px;
+    position: relative;
+    z-index: 1;
+}
+
+.section__three-blur {
+    display: block;
+    width: 100px;
+    height: auto;
+    margin: 0 auto 100px;
+    padding-top: 61px;
+}
+
+.section__three-curved-line {
+    display: block;
+    width: 49.27px;
+    height: auto;
+    margin-bottom: 37px;
+    margin: 0 auto 37px;
+}
+
+.section__three-title {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.42px;
+    margin-bottom: 40px;
+}
+
+.section__three-text {
+    font-size: var(--body-18px);
+    line-height: var(--body-line-height);
+    letter-spacing: 0.09px;
+    margin-bottom: 40px;
+    width: 343px;
+    margin: 0 auto 40px;
+    color: var(--cream);
+}
+
+.section__three-author {
+    font-size: var(--body-18px);
+    line-height: var(--body-line-height);
+    letter-spacing: -0.18px;
+    color: var(--cream);
+    text-transform: uppercase;
+}
+
+.section__three-job {
+    font-size: var(--heading-s-16px);
+    line-height: var(--heading-s-line-height);
+    letter-spacing: 2.5px;
+    color: var(--cream);
+    text-transform: uppercase;
+    padding-bottom: 64px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--cream);
+    padding: 190px 0 80px;
+    position: relative;
+    z-index: -1;
+    margin-top: -134px;
+}
+
+.footer__logo {
+    display: block;
+    margin-bottom: 32px;
+}
+
+.footer__text {
+    font-size: var(--footer-15px);
+    line-height: var(--footer-line-height);
+    letter-spacing: var(--footer-letter-spacing);
+    color: var(--grey);
+    margin-bottom: 32px;
+}
+
+.footer__icon-container {
+    display: flex;
+    justify-content: space-between;
+    width: 125px;
+}

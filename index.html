@@ -1,43 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Suite landing page</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Suite landing page</title>
 </head>
+
 <body>
 
-  Request Beta Access
+  <header class="header">
+    <img src="./assets/logo.svg" alt="Suite logo" class="header__logo">
+    <button class="header__button button"><a href="#">Request Beta Access</a></button>
+  </header>
 
-  A super solution for your business.
+  <main>
+    <section class="section__one">
+      <img src="./assets/pattern-curved-line-1.svg" alt="Curved line" class="section__one-curved-line">
+      <h1 class="section__one-title">A <span class="bold">super solution</span> for your <span
+          class="bold">business.</span></h1>
+      <p class="section__one-text">Our marketing and sales automations help you scale your outreach to
+        get more leads for your company.</p>
+      <button class="section__one-button button"><a href="#">Request Beta Access</a></button>
+      <picture class="section__one-image">
+        <source media="(min-width: 768px)" srcset="./assets/image-hero-portrait@2x.webp">
+        <img src="./assets/image-hero-landscape@2x.webp" alt="image-hero-landscape">
+      </picture>
+    </section>
 
-  Our marketing and sales automations help you scale your outreach to 
-  get more leads for your company. 
+    <section class="section__two">
+      <div class="section__two-companies">
+        <p class="companies__number bold">2K+</p>
+        <p class="companies__text">Companies</p>
+      </div>
+      <div class="section__two-languages">
+        <p class="languages__number bold">8</p>
+        <p class="languages__text">Languages</p>
+      </div>
+      <div class="section__two-leads">
+        <p class="leads__number bold">1.2M</p>
+        <p class="leads__text">Leads</p>
+      </div>
+    </section>
 
-  Request Beta Access
+    <div class="section__three">
+      <picture class="section__three-image">
+        <source media="(min-width: 768px)" srcset="./assets/image-jeremy-large@2x.webp">
+        <img src="./assets/image-jeremy-small@2x.webp" alt="jeremy-img">
+      </picture>
+      <div class="section__three-content">
+        <img src="./assets/pattern-blur.svg" alt="blur" class="section__three-blur">
+        <img src="./assets/pattern-curved-line-2.svg" alt="Curved line" class="section__three-curved-line">
+        <h2 class="section__three-title">It just <span class="bold">works.</span></h2>
+        <p class="section__three-text">
+          “I really like how it is an all-in-one solution that handle many of
+          the tasks that you would normally need separate tools to do the same
+          job. This thing is a miracle worker.”
+        </p>
+        <p class="section__three-author bold">Jeremy Robinson</p>
+        <p class="section__three-job">CMO, Fylo</p>
+      </div>
+    </div>
+  </main>
 
-  2K+
-  Companies
-
-  8
-  Languages
-
-  1.2M
-  Leads
-
-  It just works.
-
-  “I really like how it is an all-in-one solution that handle many of 
-  the tasks that you would normally need separate tools to do the same 
-  job. This thing is a miracle worker.”
-
-  Jeremy Robinson
-  CMO, Fylo
-
-  Copyright - Suite
+  <footer class="footer">
+    <img src="./assets/logo.svg" alt="Suite logo" class="footer__logo">
+    <p class="footer__text">Copyright - Suite</p>
+    <div class="footer__icon-container">
+      <img src="./assets/icon-facebook.svg" alt="Facebook" class="footer__icon">
+      <img src="./assets/icon-twitter.svg" alt="Twitter" class="footer__icon">
+      <img src="./assets/icon-instagram.svg" alt="Instagram" class="footer__icon">
+    </div>
+  </footer>
 
 </body>
+
 </html>
